@@ -3,11 +3,11 @@ let obj = "../out.wasm";
 let buf = "";
 
 fetch(obj).then(response =>
-	response.arrayBuffer();
+	response.arrayBuffer()
 ).then(bytes =>
 	WebAssembly.instantiate(bytes, {
 		env: {
-			putc: c => {
+			putc: function(c) {
 				c = String.fromCharCode(c);
 				if (c === "\n") {
 					console.log(buf);
