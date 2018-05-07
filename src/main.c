@@ -16,5 +16,6 @@ puts(char const *s)
 {
     while (*s)
         putc(*s++);
+    putc('\n');
 }
 
